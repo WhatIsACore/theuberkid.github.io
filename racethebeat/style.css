@@ -1,0 +1,228 @@
+body{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#wrapper{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: radial-gradient(#522, #111)
+}
+
+#menu{
+  width: 496px;
+  height: 570px;
+  padding: 15px 54px;
+  position: relative;
+  display: block;
+  margin: calc((100vh - 600px) / 2) auto;
+  background-color: #ddd;
+  z-index: 10;
+  border-radius: 4px;
+  color: #211;
+  cursor: default;
+  transition: opacity 0.5s ease;
+}
+
+.title{
+  font-family: 'Lobster Two', cursive;
+  font-style: italic;
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: -3px;
+}
+.menu-text{
+  font-family: 'Source Sans Pro';
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.menu-text.pretitle{
+  font-weight: 700;
+  margin-bottom: -10px;
+}
+.menu-text.subtitle{
+  font-weight: 700;
+}
+
+.horizontal-bar{
+  width: 30px;
+  height: 2px;
+  margin: 0 auto;
+  background-color: #211;
+}
+
+.track-button{
+  width: calc(100% - 36px);
+  height: 30px;
+  padding: 10px 15px;
+  border: 3px solid #211;
+  background-color: #ddd;
+  color: #211;
+  margin: 15px auto 0;
+  cursor: pointer;
+  font-family: 'Source Sans Pro';
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+.track-button:hover{
+  background-color: #211;
+  color: #ddd;
+}
+.track-button.selected{
+  background-color: #211;
+  color: #ddd;
+  padding-left: 25px;
+}
+.track-button .track-name{
+  display: inline-block;
+  font-weight: 700;
+  margin-right: 5px;
+  width: 160px;
+}
+.track-button .track-artist{
+  display: inline-block;
+}
+.track-button .track-score{
+  display: inline-block;
+  float: right;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.select-button, #exit-button{
+  width: 80px;
+  height: 30px;
+  padding: 10px 15px;
+  border: 3px solid #211;
+  background-color: #ddd;
+  color: #211;
+  margin: 15px auto 0;
+  cursor: pointer;
+  font-family: 'Source Sans Pro';
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.select-button.disabled{
+  opacity: 0.5;
+  cursor: default;
+}
+.select-button:not(.disabled):hover, #exit-button:hover{
+  background-color: #211;
+  color: #ddd;
+}
+
+#darken-bg{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.5s ease;
+}
+
+@keyframes loading-pulse{
+  from { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  to { opacity: 0.4; }
+}
+
+#loading-view{
+  position: fixed;
+  display: none;
+  top: calc((100vh - 200px) / 2);
+  left: calc((100vw - 300px) / 2);
+  width: 200px;
+  height: 100px;
+  padding: 50px;
+  border-radius: 4px;
+  background-color: #000;
+  color: #ddd;
+  font-family: 'Source Sans Pro';
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+#loading-view.loading-pulse{
+  animation-name: loading-pulse;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+#loading-view .track-name, #score-screen .track-name, #score-screen .stat{
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#score-screen{
+  position: fixed;
+  display: none;
+  top: calc((100vh - 450px) / 2);
+  left: calc((100vw - 350px) / 2);
+  width: 250px;
+  height: 350px;
+  padding: 50px;
+  border-radius: 4px;
+  background-color: #000;
+  color: #ddd;
+  font-family: 'Source Sans Pro';
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+
+@keyframes countdown-pulse{
+  from { opacity: 1.0; }
+  to { opacity: 0.4; }
+}
+#countdown{
+  position: fixed;
+  display: none;
+  top: calc((100vh - 120px) / 2);
+  left: calc((100vw - 120px) / 2);
+  width: 80px;
+  height: 80px;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #000;
+  color: #ddd;
+  font-family: 'Source Sans Pro';
+  font-size: 64px;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 3;
+}
+#countdown.countdown-pulse{
+  animation-name: countdown-pulse;
+  animation-duration: 700ms;
+  animation-iteration-count: 4;
+}
+
+.renderer{
+  position: absolute;
+  display: block;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 0;
+}
+
+#scorescreen{
+
+}

@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two:400i|Source+Sans+Pro:400,700" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='/style.css'>
+    <title>Race the Beat</title>
+  </head>
+
+  <body>
+
+    <div id='wrapper'>
+      <div id='menu'>
+        <div class='menu-text pretitle'>APCSP Create</div>
+        <div class='title'>Race the Beat</div>
+        <div class='menu-text subtitle'>JS Rhythm Game</div>
+
+        <br>
+
+        <div class='menu-text'>Pick a Track</div>
+        <div class='horizontal-bar'></div>
+
+        <div class='track-button' data-id='1'>
+          <span class='track-name'>Monody</span>
+          <span class='track-artist'>TheFatRat</span>
+          <span class='track-score'>Unplayed</span>
+        </div>
+
+        <div class='track-button' data-id='2'>
+          <span class='track-name'>Break-A-Leg</span>
+          <span class='track-artist'>RoccoW</span>
+          <span class='track-score'>Unplayed</span>
+        </div>
+
+        <div class='track-button' data-id='3'>
+          <span class='track-name'>Six Shooter</span>
+          <span class='track-artist'>Coyote Kisses</span>
+          <span class='track-score'>Unplayed</span>
+        </div>
+
+        <div class='track-button' data-id='4'>
+          <span class='track-name'>Wonderwall</span>
+          <span class='track-artist'>Oasis</span>
+          <span class='track-score'>Unplayed</span>
+        </div>
+
+        <br>
+        <div id='play-button' class='select-button disabled'>
+          Play
+        </div>
+
+      </div>
+
+      <div id='loading-view'>
+        <span class='track-artist' id='loading-track-artist'></span>
+        <br>
+        <span class='track-name' id='loading-track-name'></span>
+        <br><br>
+        Loading Track...
+      </div>
+
+      <div id='countdown'>
+        3
+      </div>
+
+      <div id='score-screen'>
+        <span class='track-artist' id='score-track-artist'></span>
+        <br>
+        <span class='track-name' id='score-track-name'></span>
+        <br><br>
+        Final Score: <span id='final-score' class='stat'></span><br>
+        Highest Combo: x<span id='final-combo' class='stat'></span>
+        <br><br>
+        Perfect: <span id='final-perfect' class='stat'></span> <br>
+        Good: <span id='final-good' class='stat'></span> <br>
+        Fair: <span id='final-fair' class='stat'></span> <br>
+        Miss: <span id='final-miss' class='stat'></span> <br>
+
+        <br>
+        <div id='exit-button'>
+          Exit
+        </div>
+      </div>
+
+      <div id='darken-bg'></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.1/pixi.min.js"></script>
+    <script type='text/javascript' src='/index.js'></script>
+  </body>
+</html>
