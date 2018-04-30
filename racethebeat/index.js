@@ -163,7 +163,7 @@ function loadTrack(track){
 function getTrackAudio(track){
   if(!track.audio){
     return new Promise(function(resolve, reject){
-      loader.add(track.name, '/media/' + track.audioURL);
+      loader.add(track.name, '/racethebeat/media/' + track.audioURL);
       loader.load(function(loader, resource){
         track.audio = resource[track.name].data;
         resolve(1);
