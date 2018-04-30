@@ -180,7 +180,7 @@ function getTrackBeatmap(track){
     return new Promise(function(resolve, reject){
       // use xhr to load json
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', '/beatmaps/' + track.beatmapURL, true);
+      xhr.open('GET', '/racethebeat/beatmaps/' + track.beatmapURL, true);
       xhr.responseType = 'json';
       xhr.onload = function(){
         if(xhr.status === 200){
