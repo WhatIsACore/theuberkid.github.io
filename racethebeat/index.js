@@ -18,6 +18,9 @@ document.getElementById('wrapper').appendChild(app.view);
 renderer.view.className = 'renderer';
 renderer.autoResize = true;
 renderer.resize(window.innerWidth, window.innerHeight);
+window.addEventListener('resize', function(){
+  renderer.resize(window.innerWidth, window.innerHeight);
+});
 
 var state = inactive; // current game state
 // gameLoop will always run whichever loop 'state' is currently set to
@@ -118,7 +121,7 @@ function returnToMenu(){
 var Conductor = function(track){
   this.track = track;
   this.beatmap = track.beatmap;
-  this.data = Object.assign({}, track.beatmap.data); // shallow clone
+  this.data = JSON.parse(JSON.stringify(track.beatmap.data)); // deep clone
   this.bpm = track.beatmap.info.bpm;
   this.crochet = 60 * 1000 / this.bpm;
   this.offset = track.beatmap.info.offset;
@@ -170,7 +173,7 @@ function getTrackAudio(track){
       });
     });
   } else {
-    return Promise.resolve(2); // if already loaded just return
+    return Promise.resolve(2)
   }
 }
 
@@ -222,12 +225,13 @@ function startTrack(){
   state = play;
 
   beginCountdown(function(){
-    conductor.audio.play(0);
+    conductor.audio.play();
   });
 
 }
 
 function endTrack(){
+  conductor.audio.currentTime = 0;
   conductor.audio.pause();
   scoreScreen.style.display = 'block';
   scoreScreen.style.opacity = 0.8;
@@ -243,6 +247,7 @@ function endTrack(){
 
   document.querySelectorAll('[data-id="' + selectedTrack + '"]')[0].children[2].innerHTML = score;
 
+  selectedTrack = 0;
   state = inactive;
 }
 
